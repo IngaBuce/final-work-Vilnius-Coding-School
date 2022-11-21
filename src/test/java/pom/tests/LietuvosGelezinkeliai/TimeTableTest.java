@@ -1,12 +1,9 @@
-package pom.tests.gelezinkelis;
+package pom.tests.LietuvosGelezinkeliai;
 
-import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pom.pages.Common;
-import pom.pages.Gelezinkelis.TimetablePage;
+import pom.pages.LietuvosGelezinkeliai.TimetablePage;
 import pom.tests.TestBase;
 
 public class TimeTableTest extends TestBase {
@@ -18,7 +15,7 @@ public class TimeTableTest extends TestBase {
     }
 
     @Test
-    public void testInputCorrectTravelStopNames() {
+    public void testInputFullTravelRouteData() {
 
         String from = "Vilnius";
         String to = "Kaunas";
@@ -32,7 +29,7 @@ public class TimeTableTest extends TestBase {
         TimetablePage.clickButtonTo();
         TimetablePage.enterStopNameTo(to);
         TimetablePage.clickButtonDate();
-        TimetablePage.clickTravelDate(date);
+        TimetablePage.clickButtonTravelDate(date);
 
         TimetablePage.clickButtonSearch();
         actualResult = TimetablePage.readSearchResults();
@@ -40,7 +37,6 @@ public class TimeTableTest extends TestBase {
         Assert.assertTrue(actualResult.contains(expectedResult),
                 String.format("Actual: %s, Expected: %s", actualResult, expectedResult)
         );
-        System.out.println(actualResult);
     }
 }
 

@@ -1,10 +1,8 @@
-package pom.pages.Gelezinkelis;
+package pom.pages.LietuvosGelezinkeliai;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import pom.pages.Common;
 import pom.pages.Locators;
-
 
 public class TimetablePage {
 
@@ -14,8 +12,8 @@ public class TimetablePage {
 
     public static void clickButtonFrom() {
         try {
-            Common.waitForElementToBeClickable(Locators.Gelezinkelis.TimeTable.buttonFrom);
-            Common.clickElement(Locators.Gelezinkelis.TimeTable.buttonFrom);
+            Common.waitForElementToBeClickable(Locators.RailRoads.TimeTable.inputButtomFrom);
+            Common.clickElement(Locators.RailRoads.TimeTable.inputButtomFrom);
         } catch (TimeoutException exception) {
             exception.printStackTrace();
         }
@@ -23,74 +21,49 @@ public class TimetablePage {
 
     public static void clickButtonTo() {
         try {
-            Common.waitForElementToBeClickable(Locators.Gelezinkelis.TimeTable.buttonTo);
-            Common.clickElement(Locators.Gelezinkelis.TimeTable.buttonTo);
+            Common.waitForElementToBeClickable(Locators.RailRoads.TimeTable.inputButtondTo);
+            Common.clickElement(Locators.RailRoads.TimeTable.inputButtondTo);
         } catch (TimeoutException exception) {
             exception.printStackTrace();
         }
     }
 
-//    public static void clickTravelDate(String date) {
-//        try {
-//            Common.waitForElementToBeClickable(Locators.Gelezinkelis.TimeTable.optionDayOfMonth);
-//            Common.findElement(Locators.Gelezinkelis.TimeTable.optionDayOfMonth);
-//            Common.senKeysToElement(Locators.Gelezinkelis.TimeTable.optionDayOfMonth,
-//                    date
-//
-//            );
-//        } catch (Exception exception) {
-//            exception.printStackTrace();
-//        }
-//
-//    }
-
-
-    public static void clickTravelDate(String date) {
+    public static void clickButtonTravelDate(String date) {
         try {
-
-            Common.waitForElementToBeClickable(Locators.Gelezinkelis.TimeTable.optionDayOfMonth(date));
-            Common.clickElement(Locators.Gelezinkelis.TimeTable.optionDayOfMonth(date));
-//            Common.senKeysToElement(Locators.Gelezinkelis.TimeTable.optionDayOfMonth,
-//                    date
-
-//            );
+            Common.waitForElementToBeClickable(Locators.RailRoads.TimeTable.divOptionDayOfMonth(date));
+            Common.clickElement(Locators.RailRoads.TimeTable.divOptionDayOfMonth(date));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-
     }
-
 
     public static void enterStopNameFrom(String message) {
         Common.senKeysToElement(
-                Locators.Gelezinkelis.TimeTable.enterFrom,
-                message
-        );
+                Locators.RailRoads.TimeTable.enterInputFrom,
+                message);
     }
 
     public static void enterStopNameTo(String message) {
         Common.senKeysToElement(
-                Locators.Gelezinkelis.TimeTable.enterTo,
-                message
-        );
+                Locators.RailRoads.TimeTable.enterInputTo,
+                message);
     }
 
     public static void clickButtonDate() {
-        Common.clickElement(Locators.Gelezinkelis.TimeTable.buttonDate);
+        Common.clickElement(
+                Locators.RailRoads.TimeTable.divButtonDate);
     }
 
     public static void clickButtonSearch() {
-        Common.clickElement(Locators.Gelezinkelis.TimeTable.buttonSearch);
+        Common.clickElement(
+                Locators.RailRoads.TimeTable.spanButtonSearch);
     }
 
     public static String readSearchResults() {
-        return Common.getTextFromElement(Locators.Gelezinkelis.TimeTable.readSearchResult);
-    }
-
-    public static void clickOptionDayOfMonth(String date) {
-        Common.clickElementWithException(
-                Locators.Gelezinkelis.TimeTable.optionDayOfMonth(date)
-        );
+        return Common.getTextFromElement(
+                Locators.RailRoads.TimeTable.divSearchResult);
     }
 }
+
+
 

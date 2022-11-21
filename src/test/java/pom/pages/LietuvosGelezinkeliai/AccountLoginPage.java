@@ -1,47 +1,39 @@
-package pom.pages.Gelezinkelis;
+package pom.pages.LietuvosGelezinkeliai;
+
 import pom.pages.Common;
 import pom.pages.Locators;
 
 public class AccountLoginPage {
 
-    public static void clickButtonPatvirtinti (){
-        Common.clickElement(Locators.Gelezinkelis.KlientoPaskyra.buttonPatvirtinti);
-    };
+    public static void clickButtonConfirm() {
+        Common.clickElement(
+                Locators.RailRoads.LoginAccount.spanButtonConfirm);
+    }
 
     public static void openUrl(String url) {
         Common.openUrl(url);
     }
 
-    public static void sleep(int millis) {
-        Common.sleep(millis);
-    }
-
-    public static void close() {
-        Common.close();
-    }
-
-    public static void enterVartotojasVardas(String message) {
+    public static void enterUserName(String text) {
         Common.senKeysToElement(
-                Locators.Gelezinkelis.KlientoPaskyra.inputVartotojoVardas,
-                message
-        );
+                Locators.RailRoads.LoginAccount.inputUserName,
+                text);
     }
-    public static void enterSlaptazodis(String message){
+
+    public static void enterPassword(String text) {
         Common.senKeysToElement(
-                Locators.Gelezinkelis.KlientoPaskyra.inputSlaptazodis,
-                message
-        );
+                Locators.RailRoads.LoginAccount.inputPassword,
+                text);
     }
 
-    public static String readPaskyraMessage() {
+    public static String readLoginErrorMessage() {
         return Common.getTextFromElement(
-                Locators.Gelezinkelis.KlientoPaskyra.paragraphPaskyraContent);
+                Locators.RailRoads.LoginAccount.divErrorToastContent);
     }
 
-    public static String readSekmingoPrisijungimoMessage() {
+    public static String readSuccessfulLoginContent() {
         return Common.getTextFromElement(
-                Locators.Gelezinkelis.KlientoPaskyra.paragraphMyAccountContent
-        );
+                Locators.RailRoads.LoginAccount.listMyAccountContent);
     }
 }
 

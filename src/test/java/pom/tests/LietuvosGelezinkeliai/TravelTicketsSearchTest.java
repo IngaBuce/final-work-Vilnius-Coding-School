@@ -1,10 +1,10 @@
-package pom.tests.gelezinkelis;
+package pom.tests.LietuvosGelezinkeliai;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pom.pages.Gelezinkelis.TravelTicketsSearchPage;
+import pom.pages.LietuvosGelezinkeliai.TravelTicketsSearchPage;
 import pom.tests.TestBase;
 
 public class TravelTicketsSearchTest extends TestBase {
@@ -28,9 +28,9 @@ public class TravelTicketsSearchTest extends TestBase {
         String expectedResult = "Paieškos rezultatai";
         String actualResult;
 
-        TravelTicketsSearchPage.clickButtonTravelOriginFrom();
+        TravelTicketsSearchPage.clickButtonFrom();
         TravelTicketsSearchPage.enterTravelOriginFrom(originFrom);
-        TravelTicketsSearchPage.clickButtonTravleDestinationTo();
+        TravelTicketsSearchPage.clickButtonTo();
         TravelTicketsSearchPage.enterTravelDestinationTo(destinationTo);
 
         TravelTicketsSearchPage.clickButtonSearch();
@@ -41,22 +41,22 @@ public class TravelTicketsSearchTest extends TestBase {
         );
     }
 
-    @DataProvider(name = "testInputInCorrectTravelStopNames")
-    public Object[][] InCorrectTravelStopNamesFunction() {
+    @DataProvider(name = "incorrectTravelStopNames")
+    public Object[][] incorrectTravelStopNamesFunction() {
         return new Object[][]{
                 {"Vilnius", "Saltupiskes"}
         };
     }
 
-    @Test(dataProvider = "testInputInCorrectTravelStopNames")
-    public void testInputInCorrectTravelStopNames(String originFrom, String destinationTo) {
+    @Test(dataProvider = "incorrectTravelStopNames")
+    public void testInputIncorrectTravelStopNames(String originFrom, String destinationTo) {
 
         String expectedResult = "Patikrinkite ar teisingai įvedėte stotelės pavadinimą";
         String actualResult;
 
-        TravelTicketsSearchPage.clickButtonTravelOriginFrom();
+        TravelTicketsSearchPage.clickButtonFrom();
         TravelTicketsSearchPage.enterTravelOriginFrom(originFrom);
-        TravelTicketsSearchPage.clickButtonTravleDestinationTo();
+        TravelTicketsSearchPage.clickButtonTo();
         TravelTicketsSearchPage.enterTravelDestinationTo(destinationTo);
 
         TravelTicketsSearchPage.clickButtonSearch();
